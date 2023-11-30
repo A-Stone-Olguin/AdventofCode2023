@@ -1,8 +1,8 @@
-use crate::day1::*;
+use crate::day_01::*;
 
-pub mod day1;
+pub mod day_01;
 pub mod helper_functions;
 
 fn main() {
-    day1part1::day_1_part_1();
+    day_01_part_1::day_01_part_1();
 }
