@@ -66,7 +66,7 @@ pub fn main() {
     let mut sum : u32 = 0;
 
     // filenames for input
-    let filename = "src/day_01/day_01_part_1_input.txt";
+    let filename = "src/day_01/day_01_input.txt";
     // let filename = "src/day_01/test_02.txt";
     
     if let Ok(lines) = read_lines(filename) {
