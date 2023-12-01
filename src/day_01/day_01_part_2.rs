@@ -3,8 +3,7 @@ use std::vec;
 use crate::helper_functions::io::*;
 use regex::Regex;
 
-// NOTE: The only difference is changing the regex
-
+// Finds the words and matches them with their respective digits
 fn word_to_digit(word : &str) -> &str {
     match word {
         "one" => "1",
@@ -16,37 +15,49 @@ fn word_to_digit(word : &str) -> &str {
         "seven" => "7",
         "eight" => "8",
         "nine" => "9",
+        // The below takes each "combined" word and puts them into two digits
+        "oneight" => "18",
+        "twone" => "21",
+        "threeight" => "38",
+        "sevenine" => "79",
+        "nineight" => "98",
+        "eightwo" => "82",
+        "eighthree" => "83",
         other => other
     }
 }
 
 fn make_two_digit_from_first_last(line_string : String) -> String {
-    // Grab the first letter, going left to right
-    let re_lr = match Regex::new(r"(\d)|(one)|(two)|(three)|(four)|(five)|(six)|(seven)|(eight)|(nine)") {
+    // Match all possible words now, include the combined ones
+    let re = match Regex::new(r"(oneight)|(twone)|(threeight)|(sevenine)|(nineight)|(eightwo)|(eighthree)|(\d)|(one)|(two)|(three)|(four)|(five)|(six)|(seven)|(eight)|(nine)") {
         Ok(r) => r,
         Err(msg) => panic!("Error: {}", msg),
     };
-    let mut results_lr = vec![];
-    for (_, [digit]) in re_lr.captures_iter(&line_string).map(|c| c.extract()) {
-        results_lr.push(word_to_digit(digit));
-    }
-    let first : &str = results_lr.first().unwrap();
 
-    // Makes it so that:
-    // 4eightfivefivetwo1oneightvhr
-    // matches 48, not 41
-    let re_rl = match Regex::new(r"on(eight)|tw(one)|thre(eight)|seve(nine)|nin(eight)|eigh(two)|eigh(three)|(\d)|(one)|(two)|(three)|(four)|(five)|(six)|(seven)|(eight)|(nine)") {
-        Ok(r) => r,
-        Err(msg) => panic!("Error: {}", msg),
-    };
-    let mut results_rl = vec![];
-    for (_, [digit]) in re_rl.captures_iter(&line_string).map(|c| c.extract()) {
-        results_rl.push(word_to_digit(digit));
+    // Store the results
+    let mut results = vec![];
+    for (_, [digit]) in re.captures_iter(&line_string).map(|c| c.extract()) {
+        // Get the resultant digit(s)
+        let d : &str = word_to_digit(digit);
+
+        // Split the result (If the second is empty, then it had length 1)
+        let (first_digit, second_digit) = d.split_at(1);
+
+        // Only had length ==1 means only push the single digit. Otherwise, push both in order.
+        if second_digit.is_empty() {
+            results.push(first_digit);
+        }
+        else {
+            results.push(first_digit);
+            results.push(second_digit);
+        }
     }
-    let last : &str = results_rl.last().unwrap();
+    // Grab the first and last digits in the vector
+    let first : &str = results.first().unwrap();
+    let last : &str = results.last().unwrap();
 
     // Concatenate the two into a string
-    (first.to_owned()+last).to_string()    
+    (first.to_owned()+last).to_string()      
 }
 
 
