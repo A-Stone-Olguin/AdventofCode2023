@@ -38,12 +38,12 @@ fn main() {
             None => &1,
         };
 
-        run_day_part_function(day_val, part_val)
+        run_day_part(day_val, part_val)
 }
 
 
 // Function that cases based on the input to use a certain day's function.
-fn run_day_part_function(day : &u8, part : &u8) {
+fn run_day_part(day : &u8, part : &u8) {
     match day {
         1 => match part {
             1 => day_01_part_1::day_01_part_1(),
