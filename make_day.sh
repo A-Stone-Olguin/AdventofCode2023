@@ -19,7 +19,7 @@ for i in ${!PARTS[@]}; do
     echo "use crate::helper_functions::io::*;" >> ${rustfile}
     echo "" >> ${rustfile}
     echo "// Main function for day ${DayNum}" >> ${rustfile}
-    echo "pub fn day_0${DayNum}_part_${PARTS[$i]}() {" >> ${rustfile}
+    echo "pub fn main() {" >> ${rustfile}
     echo "  //filenames for input" >> ${rustfile}
     echo "  let filename = \"${inputfile}\";" >> ${rustfile}
     echo "  // let filename = \"${testfile}\"\n;" >> ${rustfile}

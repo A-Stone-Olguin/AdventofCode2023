@@ -25,7 +25,7 @@ fn make_two_digit_from_first_last(line_string : String) -> String {
 
 
 // Main function for day 1
-pub fn day_01_part_1() {
+pub fn main() {
     let mut sum : u32 = 0;
     if let Ok(lines) = read_lines("./src/day_01/day_01_part_1_input.txt") {
         // Consumes the iterator, returns an (Optional) String

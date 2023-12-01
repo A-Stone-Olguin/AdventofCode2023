@@ -62,7 +62,7 @@ fn make_two_digit_from_first_last(line_string : String) -> String {
 
 
 
-pub fn day_01_part_2() {
+pub fn main() {
     let mut sum : u32 = 0;
 
     // filenames for input

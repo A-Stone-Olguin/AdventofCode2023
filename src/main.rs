@@ -46,13 +46,13 @@ fn main() {
 fn run_day_part(day : &u8, part : &u8) {
     match day {
         1 => match part {
-            1 => day_01_part_1::day_01_part_1(),
-            2 => day_01_part_2::day_01_part_2(),
+            1 => day_01_part_1::main(),
+            2 => day_01_part_2::main(),
             _ => return,
         },
         2 => match part {
-            1 => day_02_part_1::day_02_part_1(),
-            2 => day_02_part_2::day_02_part_2(),
+            1 => day_02_part_1::main(),
+            2 => day_02_part_2::main(),
             _ => return,
         },
         _ => println!("Please provide a valid day/part combination."),
