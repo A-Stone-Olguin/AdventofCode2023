@@ -7,7 +7,11 @@ DIR_NAME="src/day_0${DayNum}"
 mkdir ${DIR_NAME}
 inputfile="${DIR_NAME}/day_0${DayNum}_input.txt"
 touch ${inputfile}
-touch "${DIR_NAME}/mod.rs"
+
+modfile="${DIR_NAME}/mod.rs"
+touch ${modfile}
+echo "pub mod day_03_part_1;" >> ${modfile}
+echo "pub mod day_03_part_2;" >> ${modfile}
 
 PARTS=(1 2)
 
