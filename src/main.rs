@@ -2,9 +2,11 @@ use clap::{arg, command, value_parser};
 
 use crate::day_01::*;
 use crate::day_02::*;
+use crate::day_03::*;
 
 pub mod day_01;
 pub mod day_02;
+pub mod day_03;
 pub mod helper_functions;
 
 fn main() {
@@ -53,6 +55,11 @@ fn run_day_part(day : &u8, part : &u8) {
         2 => match part {
             1 => day_02_part_1::main(),
             2 => day_02_part_2::main(),
+            _ => return,
+        },
+        3 => match part {
+            1 => day_03_part_1::main(),
+            2 => day_03_part_2::main(),
             _ => return,
         },
         _ => println!("Please provide a valid day/part combination."),
