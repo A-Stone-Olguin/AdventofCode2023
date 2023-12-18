@@ -10,8 +10,8 @@ touch ${inputfile}
 
 modfile="${DIR_NAME}/mod.rs"
 touch ${modfile}
-echo "pub mod day_03_part_1;" >> ${modfile}
-echo "pub mod day_03_part_2;" >> ${modfile}
+echo "pub mod day_0${DayNum}_part_1;" >> ${modfile}
+echo "pub mod day_0${DayNum}_part_2;" >> ${modfile}
 
 PARTS=(1 2)
 
@@ -25,8 +25,8 @@ for i in ${!PARTS[@]}; do
     echo "// Main function for day ${DayNum}" >> ${rustfile}
     echo "pub fn main() {" >> ${rustfile}
     echo "  //filenames for input" >> ${rustfile}
-    echo "  let filename = \"${inputfile}\";" >> ${rustfile}
-    echo "  // let filename = \"${testfile}\"\n;" >> ${rustfile}
+    echo "  // let filename = \"${inputfile}\";" >> ${rustfile}
+    echo "  let filename = \"${testfile}\";" >> ${rustfile}
     echo "" >> ${rustfile}
     echo "  if let Ok(lines) = read_lines(filename) {" >> ${rustfile}
     echo "      // Consumes the iterator, returns an (Optional) String" >> ${rustfile}
