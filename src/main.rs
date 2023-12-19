@@ -6,6 +6,7 @@ use crate::day_03::*;
 use crate::day_04::*;
 use crate::day_05::*;
 use crate::day_06::*;
+use crate::day_07::*;
 
 pub mod day_01;
 pub mod day_02;
@@ -13,6 +14,7 @@ pub mod day_03;
 pub mod day_04;
 pub mod day_05;
 pub mod day_06;
+pub mod day_07;
 pub mod helper_functions;
 
 fn main() {
@@ -81,6 +83,11 @@ fn run_day_part(day : &u8, part : &u8) {
         6 => match part {
             1 => day_06_part_1::main(),
             2 => day_06_part_2::main(),
+            _ => return,
+        },
+        7 => match part {
+            1 => day_07_part_1::main(),
+            2 => day_07_part_2::main(),
             _ => return,
         },
         _ => println!("Please provide a valid day/part combination."),
