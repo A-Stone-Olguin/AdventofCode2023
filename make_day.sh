@@ -24,18 +24,18 @@ for i in ${!PARTS[@]}; do
     echo "" >> ${rustfile}
     echo "// Main function for day ${DayNum}" >> ${rustfile}
     echo "pub fn main() {" >> ${rustfile}
-    echo "  //filenames for input" >> ${rustfile}
-    echo "  // let filename = \"${inputfile}\";" >> ${rustfile}
-    echo "  let filename = \"${testfile}\";" >> ${rustfile}
+    echo "    // filenames for input" >> ${rustfile}
+    echo "    // let filename = \"${inputfile}\";" >> ${rustfile}
+    echo "    let filename = \"${testfile}\";" >> ${rustfile}
     echo "" >> ${rustfile}
-    echo "  if let Ok(lines) = read_lines(filename) {" >> ${rustfile}
-    echo "      // Consumes the iterator, returns an (Optional) String" >> ${rustfile}
-    echo "      for line in lines {" >> ${rustfile}
-    echo "          if let Ok(ip) = line {" >> ${rustfile}
-    echo "              println!(\"{}\", ip);" >> ${rustfile}
-    echo "          }" >> ${rustfile}
-    echo "      }" >> ${rustfile}
-    echo "  }" >> ${rustfile}
+    echo "    if let Ok(lines) = read_lines(filename) {" >> ${rustfile}
+    echo "        // Consumes the iterator, returns an (Optional) String" >> ${rustfile}
+    echo "        for line in lines {" >> ${rustfile}
+    echo "            if let Ok(ip) = line {" >> ${rustfile}
+    echo "                println!(\"{}\", ip);" >> ${rustfile}
+    echo "            }" >> ${rustfile}
+    echo "        }" >> ${rustfile}
+    echo "    }" >> ${rustfile}
     echo "}" >> ${rustfile}
 done
 
