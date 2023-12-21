@@ -2,23 +2,23 @@
 
 DayNum=$1
 
-DIR_NAME="src/day_0${DayNum}"
+DIR_NAME="src/day_${DayNum}"
 
 mkdir ${DIR_NAME}
-inputfile="${DIR_NAME}/day_0${DayNum}_input.txt"
+inputfile="${DIR_NAME}/day_${DayNum}_input.txt"
 touch ${inputfile}
 
 modfile="${DIR_NAME}/mod.rs"
 touch ${modfile}
-echo "pub mod day_0${DayNum}_part_1;" >> ${modfile}
-echo "pub mod day_0${DayNum}_part_2;" >> ${modfile}
+echo "pub mod day_${DayNum}_part_1;" >> ${modfile}
+echo "pub mod day_${DayNum}_part_2;" >> ${modfile}
 
 PARTS=(1 2)
 
 for i in ${!PARTS[@]}; do
     testfile="${DIR_NAME}/test_0${PARTS[$i]}.txt"
     touch ${testfile}
-    rustfile="${DIR_NAME}/day_0${DayNum}_part_${PARTS[$i]}.rs"
+    rustfile="${DIR_NAME}/day_${DayNum}_part_${PARTS[$i]}.rs"
     touch ${rustfile}
     echo "use crate::helper_functions::io::*;" >> ${rustfile}
     echo "" >> ${rustfile}
